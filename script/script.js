@@ -141,7 +141,7 @@ window.onload = () => {
 
     const deleteAll = document.createElement('button');
     deleteAll.textContent = 'Delete all';
-
+    // Delete all items
     deleteAll.addEventListener('click', () => {
       localStorage.removeItem(activeCategory);
       renderLeads();
