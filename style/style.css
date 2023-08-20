@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 400px;
+  width: 450px;
   height: 600px;
   font-family: "Poppins", sans-serif;
   color: rgb(239, 187, 255);
@@ -65,16 +65,33 @@ body .leads-header form input {
   border-radius: 10px;
 }
 body .leads-header .categories {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
+body .leads-header #save-categories {
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
 body .leads-container {
   width: 100%;
   margin-top: 10px;
+  padding-top: 5px;
+  padding-left: 5px;
   display: grid;
-  grid-template-columns: 275px 75px;
+  grid-template-columns: 275px 50px 50px;
   grid-template-rows: auto;
+  align-items: flex-start;
+  justify-content: space-between;
   background: rgb(239, 187, 255);
   color: rgb(33, 21, 34);
   border-radius: 5px;
@@ -82,6 +99,18 @@ body .leads-container {
 body .leads-container p {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
+}
+body .leads-container .delete-item-btn {
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 body .footer {
   position: absolute;

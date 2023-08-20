@@ -4,6 +4,12 @@ window.onload = () => {
   const category2 = localStorage.getItem('category2') || 'Category 2';
   const category3 = localStorage.getItem('category3') || 'Category 3';
   const category4 = localStorage.getItem('category4') || 'Category 4';
+  const saveCategories = document.getElementById('save-categories');
+
+  // refresh page to save new input categories
+  saveCategories.addEventListener('click', () => {
+    location.reload();
+  });
 
   // Get DOM elements for the buttons
   const button1 = document.getElementById('button1');
@@ -93,9 +99,14 @@ window.onload = () => {
     getLeads.innerHTML = '';
     myLeads = JSON.parse(localStorage.getItem(activeCategory)) || [];
 
+    const title = document.createElement('h2');
+    title.textContent = activeCategory;
+    getLeads.appendChild(title);
+
     for (let i = 0; i < myLeads.length; i++) {
       const leadsContainer = document.createElement('div');
       leadsContainer.className = 'leads-container';
+
       const text = document.createElement('p');
       text.textContent = myLeads[i];
 
@@ -107,23 +118,46 @@ window.onload = () => {
       url.textContent = myLeads[i];
       url.target = '_blank';
 
+      const deleteItem = document.createElement('button');
+      deleteItem.className = 'delete-item-btn';
+      const deleteIcon = document.createElement('span');
+      deleteIcon.className = 'material-symbols-outlined';
+      deleteIcon.textContent = 'delete';
+      deleteItem.appendChild(deleteIcon);
+
+      // Add event listener to delete the specific item
+      deleteItem.addEventListener('click', () => {
+        deleteSpecificItem(i);
+        renderLeads();
+      });
+
       leadsContainer.appendChild(text);
       leadsContainer.appendChild(category);
+      leadsContainer.appendChild(deleteItem);
       leadsContainer.appendChild(url);
 
       getLeads.appendChild(leadsContainer);
     }
-  };
-  /*   // Get URL for category dynamically
-  const getCategoryURL = (category) => {
-    // Define URLs for each category
-    const categoryURLs = {
-      'Category 1': 'https://www.xaci-development.com/category1',
-      'Category 2': 'https://www.xaci-development.com/category2',
-      'Category 3': 'https://www.xaci-development.com/category3',
-      'Category 4': 'https://www.xaci-development.com/category4',
-    };
 
-    return categoryURLs[category] || '';
-  }; */
+    const deleteAll = document.createElement('button');
+    deleteAll.textContent = 'Delete all';
+
+    deleteAll.addEventListener('click', () => {
+      localStorage.removeItem(activeCategory);
+      renderLeads();
+    });
+
+    getLeads.appendChild(deleteAll);
+  };
+
+  // Delete a specific item from the leads array
+  const deleteSpecificItem = (index) => {
+    const updatedLeads = JSON.parse(localStorage.getItem(activeCategory)) || [];
+
+    if (index >= 0 && index < updatedLeads.length) {
+      updatedLeads.splice(index, 1);
+    }
+
+    localStorage.setItem(activeCategory, JSON.stringify(updatedLeads));
+  };
 };
