@@ -70,10 +70,14 @@ body .leads-header .categories {
   justify-content: space-evenly;
 }
 body .leads-container {
+  width: 100%;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 275px 75px;
   grid-template-rows: auto;
+  background: rgb(239, 187, 255);
+  color: rgb(33, 21, 34);
+  border-radius: 5px;
 }
 body .leads-container p {
   font-size: 14px;

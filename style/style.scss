@@ -76,14 +76,18 @@ body {
     }
   }
   .leads-container {
+    width: 100%;
     margin-top: 10px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 275px 75px;
     grid-template-rows: auto;
     p {
       font-size: 14px;
       font-family: $text;
     }
+    background: $tri-color;
+    color: $pri-background-color;
+    border-radius: 5px;
   }
   .footer {
     position: absolute;
