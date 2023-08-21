@@ -1,4 +1,3 @@
-//window.onload = () => {
 // Retrieve categories from local storage
 const category1 = localStorage.getItem('category1') || 'Category 1';
 const category2 = localStorage.getItem('category2') || 'Category 2';
@@ -86,10 +85,14 @@ const inputDescription = document.getElementById('input-description');
 const saveBtn = document.getElementById('save-btn');
 const getLeads = document.getElementById('get-leads');
 
+// get tabs for urls
+const tabs = [{ url: 'https://www.xaci-development.com' }];
+
 // Save button click event
-saveBtn.addEventListener('click', (e) => {
-  e.preventDefault();
+saveBtn.addEventListener('click', (event) => {
+  event.preventDefault();
   myLeads.push(inputDescription.value);
+  myLeads.push(tabs[0].url);
   localStorage.setItem(activeCategory, JSON.stringify(myLeads));
   renderLeads();
 });
@@ -114,8 +117,8 @@ const renderLeads = () => {
     category.textContent = activeCategory;
 
     const url = document.createElement('a');
-    url.href = myLeads[i];
-    url.textContent = myLeads[i];
+    url.href = tabs[0].url;
+    url.textContent = tabs[0].url;
     url.target = '_blank';
 
     const deleteItem = document.createElement('button');
@@ -160,4 +163,3 @@ const deleteSpecificItem = (index) => {
 
   localStorage.setItem(activeCategory, JSON.stringify(updatedLeads));
 };
-//};
