@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "version": "1.0",
+  "version": "0.0.0.1",
   "name": "XaCi-leads",
+  "description": "A tool to easy save urls in different categories"
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"
