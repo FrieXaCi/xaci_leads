@@ -88,9 +88,13 @@ window.onload = () => {
   // Save button click event
   saveBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    const tabs = [{ url: 'https://www.xaci-development.com' }];
+    // grab url from current tab
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      myLeads.push(tabs[0].url);
+      localStorage.setItem(activeCategory, JSON.stringify(myLeads));
+      renderLeads();
+    });
     myLeads.push(inputDescription.value);
-    myLeads.push(tabs[0].url);
     localStorage.setItem(activeCategory, JSON.stringify(myLeads));
     renderLeads();
   });
