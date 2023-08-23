@@ -5,15 +5,9 @@ window.onload = () => {
   const category3 = localStorage.getItem('category3') || 'Category 3';
   const category4 = localStorage.getItem('category4') || 'Category 4';
 
-  const saveCategories = document.getElementById('save-categories');
   const inputDescription = document.getElementById('input-description');
   const saveBtn = document.getElementById('save-btn');
   const getLeads = document.getElementById('get-leads');
-
-  // refresh page to save new input categories
-  saveCategories.addEventListener('click', () => {
-    location.reload();
-  });
 
   // Create category element
   const categoryElement = document.createElement('p');
@@ -35,26 +29,42 @@ window.onload = () => {
   button4.innerHTML = category4;
 
   // Edit buttons
-  button1.addEventListener('click', () => {
+  button1.addEventListener('dblclick', () => {
     enableButtonEdit(button1, 'category1');
     setActiveCategory(category1);
     renderLeads();
   });
+  button1.addEventListener('click', () => {
+    setActiveCategory(category1);
+    renderLeads();
+  });
 
-  button2.addEventListener('click', () => {
+  button2.addEventListener('dblclick', () => {
     enableButtonEdit(button2, 'category2');
     setActiveCategory(category2);
     renderLeads();
   });
+  button2.addEventListener('click', () => {
+    setActiveCategory(category2);
+    renderLeads();
+  });
 
-  button3.addEventListener('click', () => {
+  button3.addEventListener('dblclick', () => {
     enableButtonEdit(button3, 'category3');
     setActiveCategory(category3);
     renderLeads();
   });
+  button3.addEventListener('click', () => {
+    setActiveCategory(category3);
+    renderLeads();
+  });
 
-  button4.addEventListener('click', () => {
+  button4.addEventListener('dblclick', () => {
     enableButtonEdit(button4, 'category4');
+    setActiveCategory(category4);
+    renderLeads();
+  });
+  button4.addEventListener('click', () => {
     setActiveCategory(category4);
     renderLeads();
   });
