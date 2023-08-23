@@ -75,21 +75,40 @@ window.onload = () => {
     categoryElement.textContent = activeCategory;
   };
 
-  // Enable button edit
+  const categories = document.querySelector('.categories-container');
   const enableButtonEdit = (button, storageKey) => {
-    button.contentEditable = true;
+    const input = document.createElement('input');
+    input.classList.add = 'category-btn';
+    categories.appendChild(input);
+    button.textContent = '';
+    input.value = button.textContent;
 
-    button.addEventListener('keydown', function (event) {
+    const saveChanges = () => {
+      const newText = input.value;
+      button.textContent = newText;
+      localStorage.setItem(storageKey, newText);
+      button.parentElement.removeChild(input);
+      renderLeads();
+      location.reload();
+    };
+
+    const handleKeydown = (event) => {
       if (event.key === 'Enter') {
         event.preventDefault();
-        button.blur();
+        saveChanges();
+        location.reload();
       }
-    });
+    };
 
-    button.addEventListener('blur', function () {
-      button.contentEditable = false;
-      localStorage.setItem(storageKey, button.innerHTML);
-    });
+    const handleBlur = () => {
+      button.parentElement.removeChild(input);
+      setActiveCategory(activeCategory);
+      location.reload();
+    };
+
+    input.addEventListener('keydown', handleKeydown);
+    input.addEventListener('blur', handleBlur);
+    input.focus();
   };
 
   // Getting the leads for display
