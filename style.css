@@ -95,6 +95,7 @@ body .leads-container {
   background: rgb(239, 187, 255);
   color: rgb(33, 21, 34);
   border-radius: 5px;
+  overflow: hidden;
 }
 body .leads-container p {
   font-size: 14px;
