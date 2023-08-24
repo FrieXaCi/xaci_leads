@@ -21,7 +21,7 @@ button {
   padding: 2px;
   background: $pri-background-color;
   color: $tri-color;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   &:hover {
     background: $tri-color;
@@ -34,7 +34,7 @@ button {
   }
 }
 
-body {
+.extension-body {
   position: relative;
   margin: 0 auto;
   display: flex;
@@ -76,7 +76,7 @@ body {
         width: 250px;
         height: 25px;
         border: none;
-        border-radius: 10px;
+        border-radius: 5px;
       }
     }
     .categories-container {
@@ -92,39 +92,59 @@ body {
         width: 300px;
         height: 30px;
         outline: none;
+        border-radius: 5px;
       }
     }
   }
-  .leads-container {
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 5px;
-    padding-left: 5px;
-    display: grid;
-    grid-template-columns: 275px 50px 50px;
-    grid-template-rows: auto;
-    align-items: flex-start;
-    justify-content: space-between;
-    background: $tri-color;
-    color: $pri-background-color;
-    border-radius: 5px;
-    overflow: hidden;
-    p {
-      font-size: 14px;
-      font-family: $text;
-    }
-    .delete-item-btn {
-      margin-left: 10px;
-      width: 25px;
-      height: 25px;
-      background: none;
-      color: inherit;
-      border: none;
-      padding: 0;
-      font: inherit;
-      cursor: pointer;
-      outline: inherit;
+
+  .leads {
+    padding: 5px;
+    width: 430px;
+    height: 550px;
+    overflow: auto;
+    .leads-container {
+      padding-left: 10px;
+      margin: 0 auto;
+      width: 400px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      display: grid;
+      grid-template-columns: 250px 50px 25px;
+      grid-template-rows: auto;
+      align-items: flex-start;
+      justify-content: center;
+      background: $tri-color;
+      color: $pri-background-color;
+      border-radius: 5px;
+      overflow: hidden;
+
+      p {
+        font-size: 14px;
+        font-family: $text;
+        line-height: 16px;
+      }
+      .url-box {
+        width: 100%;
+        height: 40px;
+        overflow: hidden;
+        a {
+          line-height: 14px;
+          font-size: 12px;
+        }
+      }
+      .delete-item-btn {
+        margin-left: 10px;
+        width: 25px;
+        height: 25px;
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+      }
     }
   }
   .footer {
@@ -138,6 +158,9 @@ body {
     }
     &:checked {
       color: antiquewhite;
+    }
+    a {
+      text-decoration: none;
     }
   }
 }

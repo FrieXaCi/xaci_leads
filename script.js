@@ -87,7 +87,7 @@ window.onload = () => {
       const newText = input.value;
       button.textContent = newText;
       localStorage.setItem(storageKey, newText);
-      button.parentElement.removeChild(input);
+
       renderLeads();
       location.reload();
     };
@@ -113,7 +113,6 @@ window.onload = () => {
 
   // Getting the leads for display
   let myLeads = [];
-
   // Save button click event
   saveBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -140,6 +139,8 @@ window.onload = () => {
     for (let i = 0; i < myLeads.length; i += 2) {
       const leadsContainer = document.createElement('div');
       leadsContainer.className = 'leads-container';
+      urlBox = document.createElement('div');
+      urlBox.className = 'url-box';
 
       const text = document.createElement('p');
       text.textContent = myLeads[i];
@@ -167,7 +168,8 @@ window.onload = () => {
       leadsContainer.appendChild(text);
       leadsContainer.appendChild(category);
       leadsContainer.appendChild(deleteItem);
-      leadsContainer.appendChild(url);
+      leadsContainer.appendChild(urlBox);
+      urlBox.appendChild(url);
 
       getLeads.appendChild(leadsContainer);
     }
