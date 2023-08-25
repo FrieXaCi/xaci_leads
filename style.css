@@ -1,10 +1,25 @@
-* {
-  padding: 0;
-  margin: 0;
+.extension-body {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 400px;
+  height: 600px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(239, 187, 255);
+  background-image: linear-gradient(60deg, rgb(239, 187, 255) 10%, rgb(190, 41, 236) 20%, rgb(33, 21, 34) 75%);
+  background-repeat: no-repeat;
+  overflow: hidden;
   box-sizing: border-box;
 }
-
-button {
+.extension-body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.extension-body .default-btn {
   width: 85px;
   height: 25px;
   padding: 2px;
@@ -12,48 +27,35 @@ button {
   color: rgb(239, 187, 255);
   border-radius: 5px;
   cursor: pointer;
+  overflow: hidden;
 }
-button:hover {
+.extension-body .default-btn:hover {
   background: rgb(239, 187, 255);
   color: rgb(33, 21, 34);
 }
-button:focus {
+.extension-body .default-btn:focus {
   background: rgb(190, 41, 236);
   color: rgb(33, 21, 34);
   cursor: text;
 }
-
-.extension-body {
-  position: relative;
-  margin: 0 auto;
+.extension-body .leads-header {
+  width: 100%;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 450px;
-  height: 600px;
-  font-family: "Poppins", sans-serif;
-  color: rgb(239, 187, 255);
-  background-image: linear-gradient(60deg, rgb(239, 187, 255) 10%, rgb(190, 41, 236) 20%, rgb(33, 21, 34) 75%);
-  background-repeat: no-repeat;
+  justify-content: center;
 }
-.extension-body .main-title {
+.extension-body .leads-header .main-title {
+  width: 100%;
+  height: 50px;
   text-align: center;
   color: rgb(239, 187, 255);
   font-family: "Monoton", sans-serif;
   letter-spacing: 1px;
   font-weight: 400;
 }
-.extension-body .leads-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.extension-body .leads-header form {
-  margin: 3px;
-}
-.extension-body .leads-header form input {
+.extension-body .leads-header .form .input-des {
   all: unset;
   background-color: rgb(239, 187, 255);
   color: rgb(33, 21, 34);
@@ -65,81 +67,124 @@ button:focus {
 }
 .extension-body .leads-header .categories-container {
   margin-top: 10px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 2px;
 }
-.extension-body .leads-header .categories-container input {
-  margin: 5px auto;
-  padding: 0px 10px;
-  width: 300px;
-  height: 30px;
-  outline: none;
+.extension-body .leads-header .categories-container .input-box {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 375px;
+  height: 35px;
+}
+.extension-body .leads-header .categories-container .input-box .categorie-input {
+  all: unset;
+  background-color: rgb(239, 187, 255);
+  color: rgb(33, 21, 34);
+  padding-left: 5px;
+  width: 325px;
+  height: 25px;
+  border: none;
   border-radius: 5px;
 }
+.extension-body .leads-header .categories-container .input-box #saveicon {
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
 .extension-body .leads {
-  padding: 5px;
-  width: 430px;
-  height: 550px;
-  overflow: auto;
+  width: 360px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  overflow-y: auto;
+}
+.extension-body .leads .delete-all-btn {
+  width: 75px;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: 2px;
+  background: rgb(33, 21, 34);
+  color: rgb(239, 187, 255);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.extension-body .leads .delete-all-btn:hover {
+  background: rgb(239, 187, 255);
+  color: rgb(33, 21, 34);
 }
 .extension-body .leads .leads-container {
-  padding-left: 10px;
-  margin: 0 auto;
-  width: 400px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 5px auto;
+  padding-left: 5px;
+  width: 340px;
+  height: 75px;
   display: grid;
-  grid-template-columns: 250px 50px 25px;
-  grid-template-rows: auto;
-  align-items: flex-start;
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
   background: rgb(239, 187, 255);
   color: rgb(33, 21, 34);
   border-radius: 5px;
-  overflow: hidden;
 }
-.extension-body .leads .leads-container p {
+.extension-body .leads .leads-container .textbox {
+  width: 200px;
+  height: 30px;
+  text-align: left;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
   line-height: 16px;
-}
-.extension-body .leads .leads-container .url-box {
-  width: 100%;
-  height: 40px;
   overflow: hidden;
 }
-.extension-body .leads .leads-container .url-box a {
-  line-height: 14px;
+.extension-body .leads .leads-container .categorybox {
+  width: 75px;
+  height: 30px;
+  text-align: left;
   font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  line-height: 16px;
+  overflow: hidden;
 }
 .extension-body .leads .leads-container .delete-item-btn {
-  margin-left: 10px;
-  width: 25px;
-  height: 25px;
+  text-align: left;
+  width: 30px;
+  height: 30px;
   background: none;
   color: inherit;
   border: none;
-  padding: 0;
-  font: inherit;
   cursor: pointer;
   outline: inherit;
 }
-.extension-body .footer {
-  position: absolute;
-  bottom: 0;
-  margin: 0 auto;
+.extension-body .leads .leads-container .url-box {
+  text-align: center;
   width: 100%;
+  height: 30px;
+  overflow: hidden;
+}
+.extension-body .leads .leads-container .url-box .link {
+  line-height: 14px;
+  font-size: 12px;
+}
+
+.footer {
+  margin-top: 10px;
+  width: 100%;
+  height: 30px;
   text-align: center;
 }
-.extension-body .footer h6 {
-  color: rgb(239, 187, 255);
+.footer .footer-title {
+  color: rgb(33, 21, 34);
 }
-.extension-body .footer:checked {
-  color: antiquewhite;
+.footer:checked {
+  color: rgb(190, 41, 236);
 }
-.extension-body .footer a {
+.footer .link {
   text-decoration: none;
 }/*# sourceMappingURL=style.css.map */

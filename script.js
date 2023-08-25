@@ -5,6 +5,7 @@ window.onload = () => {
   const category3 = localStorage.getItem('category3') || 'Category 3';
   const category4 = localStorage.getItem('category4') || 'Category 4';
 
+  const extensionBody = document.getElementById('body'); // to handle blur function
   const inputDescription = document.getElementById('input-description');
   const saveBtn = document.getElementById('save-btn');
   const getLeads = document.getElementById('get-leads');
@@ -77,9 +78,21 @@ window.onload = () => {
 
   const categories = document.querySelector('.categories-container');
   const enableButtonEdit = (button, storageKey) => {
+    const inputBox = document.createElement('div');
+    inputBox.id = 'inputbox';
+    inputBox.className = 'input-box';
+    const saveIcon = document.createElement('span');
+    saveIcon.id = 'saveicon';
+    saveIcon.className = 'material-symbols-outlined';
+    saveIcon.textContent = 'save';
     const input = document.createElement('input');
-    input.classList.add = 'category-btn';
-    categories.appendChild(input);
+    input.id = 'input';
+    input.className = 'categorie-input';
+
+    inputBox.appendChild(input);
+    inputBox.appendChild(saveIcon);
+    categories.appendChild(inputBox);
+
     button.textContent = '';
     input.value = button.textContent;
 
@@ -87,7 +100,6 @@ window.onload = () => {
       const newText = input.value;
       button.textContent = newText;
       localStorage.setItem(storageKey, newText);
-
       renderLeads();
       location.reload();
     };
@@ -99,16 +111,32 @@ window.onload = () => {
         location.reload();
       }
     };
+    saveIcon.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log('clicked');
+      saveChanges();
+      location.reload();
+    });
 
     const handleBlur = () => {
-      button.parentElement.removeChild(input);
+      inputBox.removeChild(saveIcon);
+      inputBox.removeChild(input);
+      categories.removeChild(inputBox);
+
       setActiveCategory(activeCategory);
       location.reload();
     };
 
+    extensionBody.addEventListener('click', (event) => {
+      if (!inputBox.contains(event.target)) {
+        console.log('outside the box');
+        handleBlur();
+      } else {
+        console.log('inside the box');
+      }
+    });
+
     input.addEventListener('keydown', handleKeydown);
-    input.addEventListener('blur', handleBlur);
-    input.focus();
   };
 
   // Getting the leads for display
@@ -136,22 +164,25 @@ window.onload = () => {
     title.textContent = activeCategory;
     getLeads.appendChild(title);
 
-    for (let i = 0; i < myLeads.length; i += 2) {
+    for (let i = 0; i < myLeads.length; i += 1) {
       const leadsContainer = document.createElement('div');
       leadsContainer.className = 'leads-container';
       urlBox = document.createElement('div');
       urlBox.className = 'url-box';
 
       const text = document.createElement('p');
+      text.className = 'textbox';
       text.textContent = myLeads[i];
 
       const category = document.createElement('p');
+      category.className = 'categorybox';
       category.textContent = activeCategory;
 
       const url = document.createElement('a');
       url.href = myLeads[i + 1];
       url.textContent = myLeads[i + 1];
       url.target = '_blank';
+      url.className = 'link';
 
       const deleteItem = document.createElement('button');
       deleteItem.className = 'delete-item-btn';
@@ -160,7 +191,7 @@ window.onload = () => {
       deleteIcon.textContent = 'delete';
       deleteItem.appendChild(deleteIcon);
 
-      deleteItem.addEventListener('click', () => {
+      deleteItem.addEventListener('dblclick', () => {
         deleteSpecificItem(i);
         renderLeads();
       });
@@ -174,9 +205,10 @@ window.onload = () => {
       getLeads.appendChild(leadsContainer);
     }
     const deleteAll = document.createElement('button');
+    deleteAll.className = 'delete-all-btn';
     deleteAll.textContent = 'Delete all';
     // Delete all items
-    deleteAll.addEventListener('click', () => {
+    deleteAll.addEventListener('dblclick', () => {
       localStorage.removeItem(activeCategory);
       renderLeads();
     });

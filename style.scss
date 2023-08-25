@@ -10,37 +10,19 @@ $text-color: rgb(16, 15, 15);
 $header: 'Monoton', sans-serif;
 $text: 'Poppins', sans-serif;
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-button {
-  width: 85px;
-  height: 25px;
-  padding: 2px;
-  background: $pri-background-color;
-  color: $tri-color;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background: $tri-color;
-    color: $pri-background-color;
-  }
-  &:focus {
-    background: $pri-color;
-    color: $pri-background-color;
-    cursor: text;
-  }
-}
-
 .extension-body {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   position: relative;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 450px;
+  justify-content: flex-start;
+  width: 400px;
   height: 600px;
   font-family: $text;
   color: $tri-color;
@@ -50,25 +32,50 @@ button {
     $pri-color 20%,
     $pri-background-color 75%
   );
-
   background-repeat: no-repeat;
+  overflow: hidden;
+  box-sizing: border-box;
 
-  .main-title {
-    text-align: center;
+  .default-btn {
+    width: 85px;
+    height: 25px;
+    padding: 2px;
+    background: $pri-background-color;
     color: $tri-color;
-    font-family: $header;
-    letter-spacing: 1px;
-    font-weight: 400;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    &:hover {
+      background: $tri-color;
+      color: $pri-background-color;
+    }
+    &:focus {
+      background: $pri-color;
+      color: $pri-background-color;
+      cursor: text;
+    }
   }
+
   .leads-header {
+    // margin-bottom: 25px;
     width: 100%;
+    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    form {
-      margin: 3px;
-      input {
+    justify-content: center;
+
+    .main-title {
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      color: $tri-color;
+      font-family: $header;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+    .form {
+      .input-des {
         all: unset;
         background-color: $tri-color;
         color: $pri-background-color;
@@ -81,86 +88,128 @@ button {
     }
     .categories-container {
       margin-top: 10px;
+      height: auto;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 2px;
-      input {
-        margin: 5px auto;
-        padding: 0px 10px;
-        width: 300px;
-        height: 30px;
-        outline: none;
-        border-radius: 5px;
+      .input-box {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 375px;
+        height: 35px;
+
+        .categorie-input {
+          all: unset;
+          background-color: $tri-color;
+          color: $pri-background-color;
+          padding-left: 5px;
+          width: 325px;
+          height: 25px;
+          border: none;
+          border-radius: 5px;
+        }
+        #saveicon {
+          text-align: center;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+        }
       }
     }
   }
-
   .leads {
-    padding: 5px;
-    width: 430px;
-    height: 550px;
-    overflow: auto;
+    //margin-bottom: 20px;
+    width: 360px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    overflow-y: auto;
+    .delete-all-btn {
+      width: 75px;
+      height: 30px;
+      margin-bottom: 20px;
+      padding: 2px;
+      background: $pri-background-color;
+      color: $tri-color;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background: $tri-color;
+        color: $pri-background-color;
+      }
+    }
     .leads-container {
-      padding-left: 10px;
-      margin: 0 auto;
-      width: 400px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-
+      margin: 5px auto;
+      padding-left: 5px;
+      width: 340px;
+      height: 75px;
       display: grid;
-      grid-template-columns: 250px 50px 25px;
-      grid-template-rows: auto;
-      align-items: flex-start;
-      justify-content: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
       background: $tri-color;
       color: $pri-background-color;
       border-radius: 5px;
-      overflow: hidden;
-
-      p {
+      .textbox {
+        width: 200px;
+        height: 30px;
+        text-align: left;
         font-size: 14px;
         font-family: $text;
         line-height: 16px;
+        overflow: hidden;
+      }
+      .categorybox {
+        width: 75px;
+        height: 30px;
+        text-align: left;
+        font-size: 12px;
+        font-family: $text;
+        line-height: 16px;
+        overflow: hidden;
+      }
+      .delete-item-btn {
+        text-align: left;
+        width: 30px;
+        height: 30px;
+        background: none;
+        color: inherit;
+        border: none;
+        cursor: pointer;
+        outline: inherit;
       }
       .url-box {
+        text-align: center;
         width: 100%;
-        height: 40px;
+        height: 30px;
         overflow: hidden;
-        a {
+        .link {
           line-height: 14px;
           font-size: 12px;
         }
       }
-      .delete-item-btn {
-        margin-left: 10px;
-        width: 25px;
-        height: 25px;
-        background: none;
-        color: inherit;
-        border: none;
-        padding: 0;
-        font: inherit;
-        cursor: pointer;
-        outline: inherit;
-      }
     }
   }
-  .footer {
-    position: absolute;
-    bottom: 0;
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-    h6 {
-      color: $tri-color;
-    }
-    &:checked {
-      color: antiquewhite;
-    }
-    a {
-      text-decoration: none;
-    }
+}
+
+.footer {
+  margin-top: 10px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  .footer-title {
+    color: $pri-background-color;
+  }
+  &:checked {
+    color: $pri-color;
+  }
+  .link {
+    text-decoration: none;
   }
 }
