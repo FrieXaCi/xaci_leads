@@ -164,7 +164,7 @@ window.onload = () => {
     title.textContent = activeCategory;
     getLeads.appendChild(title);
 
-    for (let i = 0; i < myLeads.length; i += 1) {
+    for (let i = 0; i < myLeads.length; i += 2) {
       const leadsContainer = document.createElement('div');
       leadsContainer.className = 'leads-container';
       urlBox = document.createElement('div');
