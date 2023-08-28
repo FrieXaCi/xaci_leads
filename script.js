@@ -5,6 +5,7 @@ window.onload = () => {
   const category3 = localStorage.getItem('category3') || 'Category 3';
   const category4 = localStorage.getItem('category4') || 'Category 4';
 
+  // get dom elements to display data on screen
   const extensionBody = document.getElementById('body'); // to handle blur function
   const inputDescription = document.getElementById('input-description');
   const saveBtn = document.getElementById('save-btn');
@@ -75,7 +76,7 @@ window.onload = () => {
     activeCategory = category;
     categoryElement.textContent = activeCategory;
   };
-
+  // change category on button
   const categories = document.querySelector('.categories-container');
   const enableButtonEdit = (button, storageKey) => {
     const inputBox = document.createElement('div');
@@ -95,7 +96,7 @@ window.onload = () => {
 
     button.textContent = '';
     input.value = button.textContent;
-
+    // save category after change
     const saveChanges = () => {
       const newText = input.value;
       button.textContent = newText;
@@ -103,7 +104,6 @@ window.onload = () => {
       renderLeads();
       location.reload();
     };
-
     const handleKeydown = (event) => {
       if (event.key === 'Enter') {
         event.preventDefault();
@@ -117,25 +117,20 @@ window.onload = () => {
       saveChanges();
       location.reload();
     });
-
+    // reset to homescreen after accidently dblclick on category btns
     const handleBlur = () => {
       inputBox.removeChild(saveIcon);
       inputBox.removeChild(input);
       categories.removeChild(inputBox);
-
       setActiveCategory(activeCategory);
       location.reload();
     };
-
+    // clickevent to hide inputfield
     extensionBody.addEventListener('click', (event) => {
       if (!inputBox.contains(event.target)) {
-        console.log('outside the box');
         handleBlur();
-      } else {
-        console.log('inside the box');
       }
     });
-
     input.addEventListener('keydown', handleKeydown);
   };
 
@@ -213,9 +208,10 @@ window.onload = () => {
       renderLeads();
     });
     if (myLeads && myLeads.length > 0) {
-      deleteAll.style.display = 'block'; // Show the button
+      // to show button only when localstorage has items
+      deleteAll.style.display = 'block';
     } else {
-      deleteAll.style.display = 'none'; // Hide the button
+      deleteAll.style.display = 'none';
     }
     getLeads.appendChild(deleteAll);
   };

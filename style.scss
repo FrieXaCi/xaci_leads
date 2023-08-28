@@ -28,8 +28,8 @@ $text: 'Poppins', sans-serif;
   color: $tri-color;
   background-image: linear-gradient(
     60deg,
-    $tri-color 10%,
-    $pri-color 20%,
+    $pri-color 10%,
+    $sec-color 20%,
     $pri-background-color 75%
   );
   background-repeat: no-repeat;
@@ -130,7 +130,7 @@ $text: 'Poppins', sans-serif;
     align-items: center;
     justify-content: flex-start;
     height: auto;
-    overflow-y: auto;
+    overflow-x: auto;
     .delete-all-btn {
       width: 75px;
       height: 30px;
@@ -209,7 +209,7 @@ $text: 'Poppins', sans-serif;
   height: 30px;
   text-align: center;
   .footer-title {
-    color: $pri-background-color;
+    color: $tri-color;
   }
   &:checked {
     color: $pri-color;

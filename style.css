@@ -9,7 +9,7 @@
   height: 600px;
   font-family: "Poppins", sans-serif;
   color: rgb(239, 187, 255);
-  background-image: linear-gradient(60deg, rgb(239, 187, 255) 10%, rgb(190, 41, 236) 20%, rgb(33, 21, 34) 75%);
+  background-image: linear-gradient(60deg, rgb(190, 41, 236) 10%, rgb(128, 0, 128) 20%, rgb(33, 21, 34) 75%);
   background-repeat: no-repeat;
   overflow: hidden;
   box-sizing: border-box;
@@ -106,7 +106,7 @@
   align-items: center;
   justify-content: flex-start;
   height: auto;
-  overflow-y: auto;
+  overflow-x: auto;
 }
 .extension-body .leads .delete-all-btn {
   width: 75px;
@@ -185,7 +185,7 @@
   text-align: center;
 }
 .footer .footer-title {
-  color: rgb(33, 21, 34);
+  color: rgb(239, 187, 255);
 }
 .footer:checked {
   color: rgb(190, 41, 236);
