@@ -212,7 +212,11 @@ window.onload = () => {
       localStorage.removeItem(activeCategory);
       renderLeads();
     });
-
+    if (myLeads && myLeads.length > 0) {
+      deleteAll.style.display = 'block'; // Show the button
+    } else {
+      deleteAll.style.display = 'none'; // Hide the button
+    }
     getLeads.appendChild(deleteAll);
   };
 

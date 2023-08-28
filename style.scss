@@ -146,10 +146,10 @@ $text: 'Poppins', sans-serif;
       }
     }
     .leads-container {
-      margin: 5px auto;
+      margin: 5px;
       padding-left: 5px;
       width: 340px;
-      height: 75px;
+      height: 85px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
@@ -157,6 +157,8 @@ $text: 'Poppins', sans-serif;
       color: $pri-background-color;
       border-radius: 5px;
       .textbox {
+        margin-top: 5px;
+        padding: 3px;
         width: 200px;
         height: 30px;
         text-align: left;
@@ -166,18 +168,20 @@ $text: 'Poppins', sans-serif;
         overflow: hidden;
       }
       .categorybox {
+        margin-top: 5px;
+        padding: 3px;
         width: 75px;
         height: 30px;
-        text-align: left;
+        text-align: right;
         font-size: 12px;
         font-family: $text;
         line-height: 16px;
         overflow: hidden;
       }
       .delete-item-btn {
-        text-align: left;
-        width: 30px;
-        height: 30px;
+        margin-top: 5px;
+        padding: 3px;
+        text-align: right;
         background: none;
         color: inherit;
         border: none;
@@ -185,6 +189,7 @@ $text: 'Poppins', sans-serif;
         outline: inherit;
       }
       .url-box {
+        margin-top: 5px;
         text-align: center;
         width: 100%;
         height: 30px;
